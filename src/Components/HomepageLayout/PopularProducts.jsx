@@ -19,7 +19,7 @@ const PopularProducts = () => {
                 <div className='text-center space-y-4'>
                     <p className='text-xl'>---Sip & Savor---</p>
                     <h1 className='rancho-regular text-6xl text-primary text-shadow-md'>Our Popular Products</h1>
-                    <Link to='addCoffee'>
+                    <Link to='add-coffee'>
                         <button className='rancho-regular text-2xl btn shadow-none bg-[#E3B577] border-2 border-black hover:bg-transparent'>Add Coffee
                             <PiCoffeeFill />
                         </button>

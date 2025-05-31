@@ -8,7 +8,7 @@ import { Link } from 'react-router';
 const CoffeeCard = ({ coffeeData }) => {
 
 
-    const { name, photoURL, price, barista } = coffeeData;
+    const {_id, name, photoURL, price, barista } = coffeeData;
     return (
         <div className='bg-[#F5F4F195] p-10 flex items-center justify-between rounded-xl'>
             <div className='flex flex-4 items-center md:gap-10'>
@@ -22,7 +22,7 @@ const CoffeeCard = ({ coffeeData }) => {
                 </div>
             </div>
             <div className='flex items-center flex-1 flex-col space-y-2 '>
-                <Link>
+                <Link to={`/coffee-details/${_id}`}>
                     <button className='btn btn-sm md:btn-md bg-secondary text-white'>
                         <IoMdEye size={20} />
                     </button>
