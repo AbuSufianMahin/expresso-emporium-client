@@ -4,16 +4,51 @@ import { IoMdEye } from 'react-icons/io';
 import { MdDelete } from 'react-icons/md';
 // import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
-const CoffeeCard = ({ coffeeData }) => {
+const CoffeeCard = ({ allCoffeeData, setAllCoffeeData, coffeeData }) => {
 
 
-    const {_id, name, photoURL, price, barista } = coffeeData;
+    const handleDeleteCoffee = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:3000/coffees/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log("Data after deletion - ", data);
+                    })
+
+                const remainingCoffee = allCoffeeData.filter(coffee => coffee._id !== id)
+                setAllCoffeeData(remainingCoffee)
+
+
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                });
+            }
+        });
+
+    }
+
+    const { _id, name, photoURL, price, barista } = coffeeData;
     return (
         <div className='bg-[#F5F4F195] p-10 flex items-center justify-between rounded-xl'>
             <div className='flex flex-4 items-center md:gap-10'>
                 <div className=''>
-                    <img src={photoURL} alt="" className='w-2/3 md:w-full mx-auto'/>
+                    <img src={photoURL} alt="" className='w-2/3 md:w-full mx-auto' />
                 </div>
                 <div className='md:text-xl space-y-2'>
                     <h1><span className='font-bold'>Name: </span> {name}</h1>
@@ -32,11 +67,11 @@ const CoffeeCard = ({ coffeeData }) => {
                         <FaPen size={20} />
                     </button>
                 </Link>
-                <Link>
-                    <button className='btn btn-sm md:btn-md bg-[#EA4744] text-white'>
-                        <MdDelete size={20} />
-                    </button>
-                </Link>
+
+                <button onClick={() => handleDeleteCoffee(_id)} className='btn btn-sm md:btn-md bg-[#EA4744] text-white'>
+                    <MdDelete size={20} />
+                </button>
+
             </div>
         </div>
     );
