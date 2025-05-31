@@ -18,7 +18,7 @@ const CoffeeCard = ({ coffeeData }) => {
                 <div className='md:text-xl space-y-2'>
                     <h1><span className='font-bold'>Name: </span> {name}</h1>
                     <p><span className='font-bold'>Barista: </span> {barista}</p>
-                    <p><span className='font-bold'>Price: </span> {price}</p>
+                    <p><span className='font-bold'>Price: </span> {price} taka</p>
                 </div>
             </div>
             <div className='flex items-center flex-1 flex-col space-y-2 '>
@@ -27,7 +27,7 @@ const CoffeeCard = ({ coffeeData }) => {
                         <IoMdEye size={20} />
                     </button>
                 </Link>
-                <Link>
+                <Link to={`/edit-coffee/${_id}`}>
                     <button className='btn btn-sm md:btn-md bg-[#3C393B] text-white'>
                         <FaPen size={20} />
                     </button>
