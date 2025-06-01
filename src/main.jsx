@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('https://expresso-emporium-server-eight.vercel.app/coffees'),
+        loader: () => fetch('https://expresso-emporium-server-eta.vercel.app/coffees'),
         Component: HomePage
       },
       {
@@ -29,12 +29,12 @@ const router = createBrowserRouter([
       },
       {
         path: '/coffee-details/:id',
-        loader: ({params}) => fetch(`https://expresso-emporium-server-eight.vercel.app/coffees/${params.id}`),
+        loader: ({params}) => fetch(`https://expresso-emporium-server-eta.vercel.app/coffees/${params.id}`),
         Component: CoffeeDetails,
       },
       {
         path: '/edit-coffee/:id',
-        loader: ({params}) => fetch(`https://expresso-emporium-server-eight.vercel.app/coffees/${params.id}`),
+        loader: ({params}) => fetch(`https://expresso-emporium-server-eta.vercel.app/coffees/${params.id}`),
         Component: EditCoffee,
       }
 

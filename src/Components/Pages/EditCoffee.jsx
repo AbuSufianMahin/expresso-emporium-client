@@ -20,7 +20,7 @@ const EditCoffee = () => {
 
         //send the updated data to server
 
-        fetch(`https://expresso-emporium-server-eight.vercel.app/coffees/${_id}`, {
+        fetch(`https://expresso-emporium-server-eta.vercel.app/coffees/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",
