@@ -21,7 +21,7 @@ const CoffeeCard = ({ allCoffeeData, setAllCoffeeData, coffeeData }) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/coffees/${id}`, {
+                fetch(`https://expresso-emporium-server-eight.vercel.app/coffees/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

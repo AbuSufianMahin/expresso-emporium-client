@@ -16,7 +16,7 @@ const AddCoffee = () => {
 
         // send data to server
 
-        fetch('http://localhost:3000/coffees', {
+        fetch('https://expresso-emporium-server-eight.vercel.app/coffees', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
